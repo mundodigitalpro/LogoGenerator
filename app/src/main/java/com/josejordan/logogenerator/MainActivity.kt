@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Content() {
-
+    val context = LocalContext.current
     val viewModel = LogoGeneratorViewModel()
     var games by remember { mutableStateOf("") }
     var elements by remember { mutableStateOf("") }
@@ -86,7 +86,7 @@ private fun Content() {
         Column(
             modifier = Modifier
                 .verticalScroll(scrollState)
-                .alpha(if(viewModel.loading)0.5f else 1f)
+                .alpha(if (viewModel.loading) 0.5f else 1f)
                 .padding(padding)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(32.dp)
@@ -100,10 +100,10 @@ private fun Content() {
                 onElementsChange = { elements = it }
             )
             //Bloque 2
-            InfoColumn(LocalContext.current, viewModel)
+            InfoColumn(context, viewModel)
 
             //Bloque 3
-            GeneratorColumn()
+            GeneratorColumn(context, viewModel, games, elements)
         }
     }
 }

@@ -33,7 +33,7 @@ fun InfoColumn(context: Context, viewModel: LogoGeneratorViewModel) {
                 icon = Icons.Filled.Compress,
                 description = "Resume la grabación"
             ) {
-                //Click del boton
+                viewModel.createInfoSummary()
             }
 
 

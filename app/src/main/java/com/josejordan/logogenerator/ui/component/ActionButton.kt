@@ -12,10 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
-fun ActionButton(text: String, icon: ImageVector, description: String, onClick: () -> Unit) {
+fun ActionButton(text: String, icon: ImageVector, description: String, enabled: Boolean =true, onClick: () -> Unit) {
     Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        enabled = enabled
     ) {
         Text(text = text)
         Spacer(Modifier.size(ButtonDefaults.IconSpacing))
