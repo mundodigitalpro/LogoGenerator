@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Compress
 import androidx.compose.material.icons.filled.Mic
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.josejordan.logogenerator.ui.LogoGeneratorViewModel
@@ -24,12 +25,19 @@ fun InfoColumn(context: Context, viewModel: LogoGeneratorViewModel) {
             //Click del boton
             viewModel.recordAudio(context)
         }
-        ActionButton(
-            text = "Resumir",
-            icon = Icons.Filled.Compress,
-            description = "Resume la grabación"
-        ) {
-            //Click del boton
+
+        if(viewModel.info.isNotEmpty()){
+
+            ActionButton(
+                text = "Resumir",
+                icon = Icons.Filled.Compress,
+                description = "Resume la grabación"
+            ) {
+                //Click del boton
+            }
+
+
+            Text(viewModel.info)
         }
     }
 }
