@@ -23,7 +23,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.josejordan.logogenerator.ui.theme.LogoGeneratorTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.josejordan.logogenerator.ui.LogoGeneratorViewModel
 import com.josejordan.logogenerator.ui.content.DataColumn
 import com.josejordan.logogenerator.ui.content.GeneratorColumn
 import com.josejordan.logogenerator.ui.content.InfoColumn
@@ -76,7 +78,7 @@ private fun Content() {
                 onElementsChange = { elements = it }
             )
             //Bloque 2
-            InfoColumn()
+            InfoColumn(LocalContext.current, LogoGeneratorViewModel())
 
             //Bloque 3
             GeneratorColumn()
